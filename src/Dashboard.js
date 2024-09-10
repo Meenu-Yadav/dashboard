@@ -7,7 +7,6 @@ import Chart from "chart.js/auto";
 Chart.register(CategoryScale);
 
 const Dashboard = () => {
-  const [products, setProducts] = useState([]);
   const [categories, setCategories] = useState([]);
   const [productCountsByCategory, setProductCountsByCategory] = useState([]);
   const [averagePricesByCategory, setAveragePricesByCategory] = useState([]);
@@ -16,7 +15,6 @@ const Dashboard = () => {
     axios
       .get("https://fakestoreapi.com/products")
       .then((response) => {
-        setProducts(response.data);
         processProductData(response.data);
       })
       .catch((error) => console.error("Error fetching data: ", error));
